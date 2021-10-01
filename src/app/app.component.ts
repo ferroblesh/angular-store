@@ -15,6 +15,8 @@ export class AppComponent {
     age: 20,
     avatar: 'https://source.unsplash.com/random'
   };
+  names: string[] = ['Fer','Joss','John','Sebas'];
+  newName = '';
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
@@ -24,5 +26,12 @@ export class AppComponent {
   onScroll(event: Event) {
     const element = event.target as HTMLElement;
     console.log(element.scrollTop);
+  }
+  addName() {
+    this.names.push(this.newName);
+    this.newName = '';
+  }
+  deleteName(index: number) {
+    this.names.splice(index,1);
   }
 }
